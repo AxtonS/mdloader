@@ -479,6 +479,8 @@ uint8_t configure_smarteeprom(void)
     for (int i = 0; i < 4; i++)
     {
         user_row[i] = read_word(NVMCTRL_USER + i * 4);
+        if (verbose) printf("SmartEEPROM: config - NVMCTRL_USER: 0x%u - 0x%08x.\n", i, user_row[i]);
+
     }
 
     NVMCTRL_USER_ROW_MAPPING1_Type* puser_row1 = (NVMCTRL_USER_ROW_MAPPING1_Type*)(&user_row[1]);
