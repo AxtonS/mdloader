@@ -486,7 +486,8 @@ uint8_t configure_smarteeprom(void)
 
     if (verbose) printf("SmartEEPROM: config - SBLK: 0x%04x - PSZ: 0x%03x.\n", puser_row1->bit.SBLK, puser_row1->bit.PSZ);
 
-    if(puser_row1->bit.SBLK == SMARTEEPROM_TARGET_SBLK && puser_row1->bit.PSZ == SMARTEEPROM_TARGET_PSZ)
+    // if(puser_row1->bit.SBLK == SMARTEEPROM_TARGET_SBLK && puser_row1->bit.PSZ == SMARTEEPROM_TARGET_PSZ)
+    if (puser_row1->reg == 0xaeecffb1)
     {
         if (verbose) printf("SmartEEPROM: Configured!\n");
         return 1;
