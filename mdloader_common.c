@@ -500,8 +500,9 @@ uint8_t configure_smarteeprom(void)
     }
 
     // Set SmartEEPROM Virtual Size.
-    puser_row1->bit.SBLK = SMARTEEPROM_TARGET_SBLK;
-    puser_row1->bit.PSZ = SMARTEEPROM_TARGET_PSZ;
+    puser_row1->reg = 0xaeecffb1;
+    // puser_row1->bit.SBLK = SMARTEEPROM_TARGET_SBLK;
+    // puser_row1->bit.PSZ = SMARTEEPROM_TARGET_PSZ;
     return write_user_row(user_row);
 }
 
