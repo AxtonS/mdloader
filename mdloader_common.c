@@ -336,7 +336,8 @@ int test_port(char *portname, char silent)
     if (!config_port())
     {
         if (!silent) printf("Error: Could not configure port! (Correct port?)\n");
-        close_port(silent);
+          if ((deviceid & 0xFFFFF0FF) == mcu->cidr)
+          // close_port(silent);
         return 0;
     }
 
